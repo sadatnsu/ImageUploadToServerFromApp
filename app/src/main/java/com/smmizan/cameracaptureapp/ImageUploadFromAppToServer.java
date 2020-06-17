@@ -1,13 +1,19 @@
 package com.smmizan.cameracaptureapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import java.io.IOException;
 
 public class ImageUploadFromAppToServer extends AppCompatActivity implements View.OnClickListener {
     ImageView imageView;
@@ -40,12 +46,44 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
 
 
 
-                
+
                 break;
             case R.id.b_image_Upload:
                 break;
 
         }
+
+    }
+
+    private void selectImagesFromGellary()
+    {
+        Intent intent = getIntent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,IMG_REQ);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == IMG_REQ && resultCode == RESULT_OK && data!=null)
+        {
+            Uri uri = data.getData();
+
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+                imageView.setImageBitmap(bitmap);
+                imageView.setVisibility(View.VISIBLE);
+                editText.setVisibility(View.VISIBLE);
+                bImageSelect.setEnabled(false);
+                bImageUpload.setEnabled(true);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
 
     }
 }
