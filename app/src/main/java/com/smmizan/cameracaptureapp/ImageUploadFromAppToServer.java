@@ -44,8 +44,7 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
         switch (view.getId()){
             case R.id.b_image_choice:
 
-
-
+                selectImagesFromGellary();
 
                 break;
             case R.id.b_image_Upload:
@@ -57,7 +56,7 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
 
     private void selectImagesFromGellary()
     {
-        Intent intent = getIntent();
+        Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,IMG_REQ);

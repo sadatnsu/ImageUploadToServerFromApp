@@ -17,9 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ImageUploadFromAppToServer"></activity>
+        <activity android:name=".HighQuaityImages"></activity>
         <activity android:name=".DisplayImages" />
-        <activity android:name=".HighQuaityImages">
+        <activity android:name=".ImageUploadFromAppToServer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
