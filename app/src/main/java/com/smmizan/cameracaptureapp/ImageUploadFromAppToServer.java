@@ -8,12 +8,19 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ImageUploadFromAppToServer extends AppCompatActivity implements View.OnClickListener {
     ImageView imageView;
@@ -48,6 +55,7 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
 
                 break;
             case R.id.b_image_Upload:
+                ImageUpload();
                 break;
 
         }
@@ -85,4 +93,53 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
 
 
     }
+
+
+
+
+    private void ImageUpload()
+    {
+        String Images = imageToString();
+        String ImageTitle = editText.getText().toString();
+
+        ApiInterface apiInterface = ApiKey.getApiClient().create(ApiInterface.class);
+        Call<ImageModel> imageModelCall = apiInterface.uploadImage(ImageTitle,Images);
+
+        imageModelCall.enqueue(new Callback<ImageModel>() {
+            @Override
+            public void onResponse(Call<ImageModel> call, Response<ImageModel> response) {
+                Toast.makeText(ImageUploadFromAppToServer.this, "yes", Toast.LENGTH_SHORT).show();
+                ImageModel imageModel = response.body();
+                Toast.makeText(ImageUploadFromAppToServer.this, "server response : "+imageModel.getResource(), Toast.LENGTH_SHORT).show();
+                imageView.setVisibility(View.GONE);
+                editText.setVisibility(View.GONE);
+                bImageSelect.setEnabled(true);
+                bImageUpload.setEnabled(false);
+                editText.setText("");
+            }
+
+            @Override
+            public void onFailure(Call<ImageModel> call, Throwable t) {
+                Toast.makeText(ImageUploadFromAppToServer.this, "no no no", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
+
+
+    private String imageToString()
+    {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte[] imageByte = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imageByte,Base64.DEFAULT);
+
+    }
+
+
+
+
+
 }
