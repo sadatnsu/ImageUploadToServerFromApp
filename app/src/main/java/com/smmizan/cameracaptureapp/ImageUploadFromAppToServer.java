@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.smmizan.cameracaptureapp.model.ImageModel;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 

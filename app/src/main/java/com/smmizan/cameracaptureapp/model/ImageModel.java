@@ -1,4 +1,4 @@
-package com.smmizan.cameracaptureapp;
+package com.smmizan.cameracaptureapp.model;
 
 import com.google.gson.annotations.SerializedName;
 

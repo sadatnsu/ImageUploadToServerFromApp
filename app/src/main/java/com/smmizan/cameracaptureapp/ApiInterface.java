@@ -1,5 +1,7 @@
 package com.smmizan.cameracaptureapp;
 
+import com.smmizan.cameracaptureapp.model.ImageModel;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
