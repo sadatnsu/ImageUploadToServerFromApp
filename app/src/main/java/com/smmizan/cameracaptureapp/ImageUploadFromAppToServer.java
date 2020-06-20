@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
     EditText editText;
     Button bImageSelect,bImageUpload;
     Bitmap bitmap;
-    private static final int IMG_REQ = 100;
+    private static final int IMG_REQ = 777;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,13 +103,13 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
         String Images = imageToString();
         String ImageTitle = editText.getText().toString();
 
-        ApiInterface apiInterface = ApiKey.getApiClient().create(ApiInterface.class);
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<ImageModel> imageModelCall = apiInterface.uploadImage(ImageTitle,Images);
 
         imageModelCall.enqueue(new Callback<ImageModel>() {
             @Override
             public void onResponse(Call<ImageModel> call, Response<ImageModel> response) {
-                Toast.makeText(ImageUploadFromAppToServer.this, "yes", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ImageUploadFromAppToServer.this, "yes", Toast.LENGTH_SHORT).show();
                 ImageModel imageModel = response.body();
                 Toast.makeText(ImageUploadFromAppToServer.this, "server response : "+imageModel.getResource(), Toast.LENGTH_SHORT).show();
                 imageView.setVisibility(View.GONE);
@@ -120,7 +121,8 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
 
             @Override
             public void onFailure(Call<ImageModel> call, Throwable t) {
-                Toast.makeText(ImageUploadFromAppToServer.this, "no no no", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ImageUploadFromAppToServer.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("miz",t.getMessage());
 
             }
         });

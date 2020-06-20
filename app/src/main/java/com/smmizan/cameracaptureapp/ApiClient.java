@@ -3,7 +3,7 @@ package com.smmizan.cameracaptureapp;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiKey {
+public class ApiClient {
     private static final String URL = "http://118.179.136.20/BeaconOncology/imageUploadFromApp/";
     private static Retrofit retrofit;
 
