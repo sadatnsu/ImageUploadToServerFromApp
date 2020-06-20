@@ -1,4 +1,4 @@
-package com.smmizan.cameracaptureapp;
+package com.smmizan.cameracaptureapp.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

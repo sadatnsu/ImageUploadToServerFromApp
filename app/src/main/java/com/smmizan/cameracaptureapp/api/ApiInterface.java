@@ -1,4 +1,4 @@
-package com.smmizan.cameracaptureapp;
+package com.smmizan.cameracaptureapp.api;
 
 import com.smmizan.cameracaptureapp.model.ImageModel;
 
