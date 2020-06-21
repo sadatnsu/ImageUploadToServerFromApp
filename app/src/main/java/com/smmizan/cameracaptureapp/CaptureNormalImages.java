@@ -45,18 +45,6 @@ public class CaptureNormalImages extends AppCompatActivity {
                 }
             }
         });
-
-
-
-        bDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iDisplay = new Intent(CaptureNormalImages.this,DisplayImages.class);
-                iDisplay.putExtra("image_path",currentImagePath);
-                startActivity(iDisplay);
-
-            }
-        });
     }
 
 
