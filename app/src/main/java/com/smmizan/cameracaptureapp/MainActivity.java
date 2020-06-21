@@ -13,10 +13,17 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button bNormal,bHigh,bSendImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        bNormal = findViewById(R.id.bCaptureNormal);
+        bNormal = findViewById(R.id.bCaptureHigh);
+        bNormal = findViewById(R.id.bSendImageToServer);
 
 
     }
