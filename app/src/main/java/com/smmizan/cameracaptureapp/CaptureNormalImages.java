@@ -13,11 +13,12 @@ import android.widget.ImageView;
 
 public class CaptureNormalImages extends AppCompatActivity {
 
-    Button button;
+    Button button,bDisplay;
     ImageView imageView;
 
     private static final int REQUEST_IMAGE_CAPTURE =101;
 
+    String currentImagePath = null;
 
 
     @Override
@@ -28,6 +29,7 @@ public class CaptureNormalImages extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageCapture);
         button = findViewById(R.id.bCapture);
+        bDisplay = findViewById(R.id.bDisplay);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +43,17 @@ public class CaptureNormalImages extends AppCompatActivity {
                     startActivityForResult(intent,REQUEST_IMAGE_CAPTURE);
 
                 }
+            }
+        });
+
+
+
+        bDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent iDisplay = new Intent(CaptureNormalImages.this,DisplayImages.class);
+                iDisplay.putExtra("image_path",currentImagePath);
+                startActivity(iDisplay);
 
             }
         });

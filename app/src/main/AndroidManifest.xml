@@ -20,9 +20,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".CaptureNormalImages"></activity>
+        <activity android:name=".ImageUploadFromAppToServer"></activity>
         <activity android:name=".HighQuaityImages" />
         <activity android:name=".DisplayImages" />
-        <activity android:name=".ImageUploadFromAppToServer">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
