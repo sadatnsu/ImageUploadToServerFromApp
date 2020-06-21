@@ -9,11 +9,7 @@
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-
-<!--    security update purpose for retrofit library upto android O-->
-<!--    android:usesCleartextTraffic="true"-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -21,9 +17,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HighQuaityImages"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".CaptureNormalImages"></activity>
+        <activity android:name=".HighQuaityImages" />
         <activity android:name=".DisplayImages" />
         <activity android:name=".ImageUploadFromAppToServer">
             <intent-filter>

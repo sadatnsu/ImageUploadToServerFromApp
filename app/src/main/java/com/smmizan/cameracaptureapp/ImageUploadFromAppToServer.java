@@ -34,6 +34,7 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
     Bitmap bitmap;
     private static final int IMG_REQ = 777;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,12 +122,13 @@ public class ImageUploadFromAppToServer extends AppCompatActivity implements Vie
                 bImageSelect.setEnabled(true);
                 bImageUpload.setEnabled(false);
                 editText.setText("");
+                Log.e("mizan","photo sending server successfully!");
             }
 
             @Override
             public void onFailure(Call<ImageModel> call, Throwable t) {
                 Toast.makeText(ImageUploadFromAppToServer.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("miz",t.getMessage());
+                Log.e("mizan",t.getMessage());
 
             }
         });
