@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button bNormal,bHigh,bSendImage;
 
@@ -22,10 +22,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         bNormal = findViewById(R.id.bCaptureNormal);
-        bNormal = findViewById(R.id.bCaptureHigh);
-        bNormal = findViewById(R.id.bSendImageToServer);
+        bHigh = findViewById(R.id.bCaptureHigh);
+        bSendImage = findViewById(R.id.bSendImageToServer);
+
+        bNormal.setOnClickListener(this);
+        bHigh.setOnClickListener(this);
+        bSendImage.setOnClickListener(this);
 
 
     }
 
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.bCaptureNormal:
+                break;
+            case R.id.bCaptureHigh:
+                break;
+            case R.id.bSendImageToServer:
+                break;
+        }
+
+    }
 }
