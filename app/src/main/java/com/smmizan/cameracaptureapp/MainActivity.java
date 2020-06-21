@@ -38,10 +38,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()){
             case R.id.bCaptureNormal:
+                startActivity(new Intent(MainActivity.this,CaptureNormalImages.class));
                 break;
             case R.id.bCaptureHigh:
+                startActivity(new Intent(MainActivity.this,HighQuaityImages.class));
                 break;
             case R.id.bSendImageToServer:
+                startActivity(new Intent(MainActivity.this,ImageUploadFromAppToServer.class));
                 break;
         }
 
