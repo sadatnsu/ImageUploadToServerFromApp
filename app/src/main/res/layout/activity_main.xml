@@ -12,27 +12,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Capture Normal Images"
-        android:textColor="#000"
         android:id="@+id/bCaptureNormal"
         android:layout_gravity="center"
         android:textAllCaps="false"
+        android:textSize="20dp"
+        android:background="#009688"
+        android:padding="10dp"
+        android:textColor="#fff"
         android:layout_marginTop="10dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Capture High Quality Images"
-        android:textColor="#000"
         android:id="@+id/bCaptureHigh"
         android:layout_gravity="center"
         android:textAllCaps="false"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:background="#009688"
+        android:padding="10dp"
+        android:textColor="#fff"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sending Image To Server"
-        android:textColor="#000"
+        android:textSize="20dp"
+        android:background="#009688"
+        android:padding="10dp"
+        android:textColor="#fff"
         android:id="@+id/bSendImageToServer"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
